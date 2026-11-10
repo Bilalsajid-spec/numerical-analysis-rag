@@ -1,0 +1,38 @@
+# Purpose: list the Python packages needed for this project.
+# Work: pin direct dependency versions from the working Windows/Python 3.14 setup.
+
+# Extract text from PDF pages.
+pymupdf==2.1
+
+# Generate embeddings for document text and questions.
+sentence-transformers==6.2.0
+
+# Store embeddings and search the vector index.
+chromadb==1.5.9
+
+# Load optional project settings from a local .env file.
+python-dotenv==1.2.4
+
+# Run free local CPU OCR to recognize formulas as LaTeX.
+rapid-doc[cpu]==0.9.11
+
+# Parse and update cells in extracted HTML tables.
+beautifulsoup4==4.15.0
+
+# Download official model artifacts and call the local model server.
+requests==2.34.2
+
+# Download embedding model files during initial setup.
+huggingface-hub==2.4.0
+
+# Define HTTP API routes and validate requests.
+fastapi==0.162.2
+
+# Run the local API server.
+uvicorn==0.54.0
+
+# Support FastAPI TestClient requests.
+httpx==0.28.1
+
+# Build the Python browser interface that calls FastAPI over HTTP.
+streamlit==1.67.0

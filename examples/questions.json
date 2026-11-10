@@ -1,0 +1,18 @@
+{
+  "purpose": "Check retrieval coverage across all eight course weeks and refusal for unrelated questions.",
+  "work": "Run with evaluate.py; these are retrieval checks, not a proof that generated mathematics is correct.",
+  "questions": [
+    {"question": "What is absolute error and its formula?", "week": 1},
+    {"question": "What is relative error and its formula?", "week": 1},
+    {"question": "Explain round-off errors in computer floating-point arithmetic.", "week": 2},
+    {"question": "Explain Newton's divided differences interpolation polynomial.", "week": 3},
+    {"question": "When do we use Newton forward and backward difference interpolation?", "week": 4},
+    {"question": "Compare Stirling and Bessel central difference formulas.", "week": 5},
+    {"question": "Explain the bisection method and its midpoint formula.", "week": 6},
+    {"question": "What is fixed point iteration and its convergence condition?", "week": 7},
+    {"question": "Explain the Jacobi iterative update formula.", "week": 8},
+    {"question": "How does Gauss-Seidel use newly computed values?", "week": 8},
+    {"question": "What will the weather be tomorrow in Karachi?", "week": null},
+    {"question": "How do I cook chicken biryani?", "week": null}
+  ]
+}

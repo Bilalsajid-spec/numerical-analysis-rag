@@ -1,0 +1,46 @@
+# Purpose: define which local and generated files Git should ignore.
+# Work: add rules for secrets, virtual environments, caches, and generated databases.
+
+# Local secrets and machine-specific settings.
+.env
+.env.*
+!.env.example
+**/.streamlit/secrets.toml
+*.key
+*.pem
+.vscode/
+.idea/
+.codex/
+.agents/
+
+# Installed dependencies and generated Python/build files.
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Keep models, indexes, logs, and extracted course content local.
+/data/
+*.gguf
+*.onnx
+*.safetensors
+*.pt
+*.pth
+*.log
+*.part
+/DEMO_OUTPUT.md
+
+# Share the notes guide while keeping original PDFs on the local machine.
+/notes/*
+!/notes/README.md
+
+# OS-generated files.
+.DS_Store
+Thumbs.db

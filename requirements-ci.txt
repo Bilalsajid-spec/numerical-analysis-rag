@@ -1,0 +1,13 @@
+# Purpose: install the lightweight dependencies used by GitHub Actions tests.
+# Work: run mocked API, UI, and pipeline checks without downloading inference models.
+# Install requirements.txt to run the complete application.
+
+setuptools==84.2.1
+pymupdf==2.1
+beautifulsoup4==4.15.0
+python-dotenv==1.2.4
+requests==2.34.2
+fastapi==0.162.2
+uvicorn==0.54.0
+httpx==0.28.1
+streamlit==1.67.0
