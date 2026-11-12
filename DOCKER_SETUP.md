@@ -20,18 +20,23 @@ Download and extract the repository, or clone it.
 Open a terminal in the project root: the folder containing
 Dockerfile and compose.yaml.
 
-## 2. Build both images
+
+M## 2. Pull the published images
 
 Make sure the Docker engine is running.
 
 ```powershell
-docker build --target frontend -t numerical-analysis-rag-frontend:local .
-docker build --target backend -t numerical-analysis-rag-backend:local .
+docker compose pull
 ```
 
-The first build downloads dependencies and can take time.
-The images do not contain your PDF notes or model weights.
+This downloads the frontend and backend images from Docker Hub:
 
+- bill55/numerical-analysis-rag-frontend:1.0.0
+- bill55/numerical-analysis-rag-backend:1.0.0
+
+Building images locally is not required for this setup.
+The images do not contain your PDF notes or model weights;
+prepare those in the following steps.
 ## 3. Prepare model weights
 
 ```powershell
