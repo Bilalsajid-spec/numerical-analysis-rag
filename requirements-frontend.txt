@@ -1,0 +1,7 @@
+# Purpose: list the packages required by the Python frontend.
+
+# Build the browser interface.
+streamlit==1.67.0
+
+# Send HTTP requests to the FastAPI backend.
+requests==2.34.2

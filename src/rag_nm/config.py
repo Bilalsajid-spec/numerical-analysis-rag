@@ -32,7 +32,14 @@ EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 EMBEDDING_DIR = DATA_DIR / "models" / "embeddings"
 LLM_MODEL_DIR = DATA_DIR / "models" / "answer"
 LLM_MODEL_PATH = LLM_MODEL_DIR / "qwen2.5-1.5b-instruct-q4_k_m.gguf"
-RUNTIME_DIR = DATA_DIR / "runtime" / "llama-b11960"
+# Use a custom runtime directory when provided by the environment.
+# Otherwise, keep the existing local runtime directory.
+RUNTIME_DIR = Path(
+    os.getenv(
+        "LLM_RUNTIME_DIR",
+        str(DATA_DIR / "runtime" / "llama-b11960"),
+    )
+)
 LLM_PORT = int(os.getenv("LLM_PORT", "8765"))
 LLM_THREADS = int(os.getenv("LLM_THREADS", str(min(6, os.cpu_count() or 2))))
 CHUNK_TOKENS = 180

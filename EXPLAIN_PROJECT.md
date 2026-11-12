@@ -365,6 +365,6 @@ A fresh checkout needs dependency installation and **`pip install -e .`** to mak
 
 `git add` stages files locally, `git commit` creates a local snapshot, and `git push` uploads commits to the remote repository. Publishing source does not host the running application.
 
-Finish the first GitHub commit/push before adding Docker support in a separate commit. This preserves a working baseline and makes packaging changes easier to review. Docker is optional for the current local setup and has not been implemented yet.
+Finish the first GitHub commit/push before adding Docker support in a separate commit. This preserves a working baseline and makes packaging changes easier to review. Docker Docker remains optional; see [DOCKER_SETUP.md](DOCKER_SETUP.md) for the container workflow..
 
 See [GITHUB_SETUP.md](GITHUB_SETUP.md) for publishing commands. Repository visibility and the project distribution license remain owner decisions; no open-source license grant has been added automatically.

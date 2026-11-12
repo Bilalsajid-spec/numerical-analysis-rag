@@ -1,0 +1,21 @@
+# Exclude installed dependencies and generated data.
+venv/
+.venv/
+data/
+**/__pycache__/
+**/*.egg-info/
+
+# Keep private notes and secrets outside image builds.
+notes/
+.env
+.env.*
+**/secrets.toml
+**/*.key
+**/*.pem
+
+# Exclude Git history and local editor settings.
+.git/
+.codex/
+.agents/
+.vscode/
+.idea/

@@ -11,7 +11,9 @@ The original local index has **8 PDFs, 109 pages, 341 chunks**. The current auto
 
 ## Requirements and fresh checkout
 
-The full application/model setup currently targets **Windows x64**. Development was verified with **Python 3.14.5**, CPU inference, and approximately 8 GB installed RAM. Model downloads and installed dependencies need several GB of disk space. Other operating systems need an adapted llama.cpp runtime; Docker support is not included yet.
+The project supports native Windows x64 execution and Linux x64 Docker containers. Native development was verified with Python 3.14.5, CPU inference, and approximately 8 GB installed RAM. Dependencies and model downloads require several GB of disk space.
+
+For Docker setup without host Python or a virtual environment, see [DOCKER_SETUP.md](DOCKER_SETUP.md).
 
 Clone the GitHub repository, open its root folder, then run:
 

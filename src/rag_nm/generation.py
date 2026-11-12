@@ -68,7 +68,11 @@ class LocalGenerator:
                 raise RuntimeError(f"Port {LLM_PORT} is occupied by another model service. Set LLM_PORT in .env.")
         except requests.RequestException:
             pass
-        binaries = list(RUNTIME_DIR.rglob("llama-server.exe")) if RUNTIME_DIR.exists() else []
+                # Select the executable name for the current operating system.
+        binary_name = "llama-server.exe" if sys.platform == "win32" else "llama-server"
+
+        # Find the matching executable inside the configured runtime directory.
+        binaries = list(RUNTIME_DIR.rglob(binary_name)) if RUNTIME_DIR.exists() else []
         if not binaries or not LLM_MODEL_PATH.exists():
             raise FileNotFoundError("Local answer model/runtime missing. Run python setup_models.py first.")
         print("Loading the local answer model...", file=sys.stderr, flush=True)

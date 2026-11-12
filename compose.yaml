@@ -1,0 +1,62 @@
+# Purpose: configure the project's local Docker containers.
+# Work: connect services and attach persistent models, notes, and indexes.
+
+name: numerical-analysis-rag
+
+services:
+  backend:
+    image: numerical-analysis-rag-backend:local
+    init: true
+
+    ports:
+      - "127.0.0.1:8000:8000"
+
+    environment:
+      LLM_THREADS: "6"
+      TOKENIZERS_PARALLELISM: "false"
+
+    volumes:
+      # Store the Docker index separately from the Windows index.
+      - rag-data:/app/data
+
+      # Reuse existing model weights and OCR page caches.
+      - ./data/models:/app/data/models
+      - ./data/extracted:/app/data/extracted
+
+      # Allow the backend to read PDFs without modifying them.
+      - ./notes:/app/notes:ro
+
+    healthcheck:
+      # Check API liveness without loading the answer model.
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=5)"]
+      interval: 10s
+      timeout: 6s
+      retries: 5
+      start_period: 20s
+
+  frontend:
+    image: numerical-analysis-rag-frontend:local
+    init: true
+
+    ports:
+      - "127.0.0.1:5173:5173"
+
+    environment:
+      # Send API requests to the backend service on Docker's network.
+      RAG_API_URL: "http://backend:8000"
+
+    depends_on:
+      # Start the frontend after the API health check passes.
+      backend:
+        condition: service_healthy
+
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:5173/_stcore/health', timeout=5)"]
+      interval: 10s
+      timeout: 6s
+      retries: 5
+      start_period: 15s
+
+volumes:
+  # Preserve the Docker index when containers are removed.
+  rag-data:

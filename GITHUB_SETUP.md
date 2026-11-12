@@ -64,4 +64,4 @@ git push
 
 ## GitHub or Docker first?
 
-Publish the current working application to GitHub first. Add Docker configuration and verify container behavior afterward, then commit and push those changes separately. Docker image registries and application hosting are separate from source-code publishing. Docker support is not included yet.
+Publish the current working application to GitHub first. Add Docker configuration and verify container behavior afterward, then commit and push those changes separately. Docker image registries and application hosting are separate from source-code publishing. Docker setup is documented in [DOCKER_SETUP.md](DOCKER_SETUP.md).
